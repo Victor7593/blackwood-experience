@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100c0c">
+
+  <title>BLACKWOOD EXPERIENCE | Expediente 001</title>
+
+  <style>
+    :root {
+      --fondo: #100c0c;
+      --panel: #211817;
+      --borde: #62443d;
+      --texto: #e8ddcb;
+      --secundario: #b4a392;
+      --rojo: #a73e38;
+      --dorado: #c5a67a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #38201e, transparent 60%),
+        var(--fondo);
+      color: var(--texto);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .contenedor {
+      max-width: 650px;
+      margin: auto;
+      padding: 25px 18px 70px;
+    }
+
+    .etiqueta {
+      color: var(--dorado);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--texto);
+      font-size: clamp(36px, 9vw, 58px);
+      line-height: 1;
+      letter-spacing: 3px;
+      margin: 18px 0;
+    }
+
+    h2 {
+      color: var(--dorado);
+      font-size: 27px;
+      line-height: 1.25;
+    }
+
+    h3 {
+      color: var(--dorado);
+    }
+
+    p {
+      line-height: 1.75;
+    }
+
+    .panel {
+      margin-top: 25px;
+      padding: 24px;
+      border: 1px solid var(--borde);
+      background: linear-gradient(135deg, #291e1b, #151010);
+      box-shadow: 0 12px 35px #0008;
+    }
+
+    .sello {
+      display: inline-block;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      border: 1px solid var(--rojo);
+      color: #d67c73;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      transform: rotate(-2deg);
+    }
+
+    .documento {
+      margin: 20px 0;
+      padding: 20px;
+      background: #d9c8a7;
+      color: #34271e;
+      line-height: 1.8;
+      box-shadow: 4px 5px 0 #47362c;
+      transform: rotate(-0.5deg);
+    }
+
+    .documento h3 {
+      color: #672e28;
+      margin-top: 0;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      min-height: 50px;
+      padding: 14px;
+      margin: 12px 0;
+      border: 1px solid #b85a50;
+      background: #79352f;
+      color: #fff2df;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button.secundario {
+      background: transparent;
+      border-color: var(--borde);
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      background: #100c0c;
+      border: 1px solid #84675a;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .progreso {
+      width: 100%;
+      height: 6px;
+      margin: 20px 0;
+      background: #3a2926;
+    }
+
+    .barra {
+      height: 100%;
+      background: var(--rojo);
+      transition: width 0.5s;
+    }
+
+    .informacion {
+      color: var(--secundario);
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .error {
+      color: #ff8b80;
+    }
+
+    .oculto {
+      display: none;
+    }
+
+    .final {
+      color: #ff3838;
+      font-family: Arial, sans-serif;
+      font-size: clamp(32px, 8vw, 52px);
+      font-weight: 900;
+      text-align: center;
+      text-shadow: 0 0 25px red;
+      animation: latido 0.8s infinite alternate;
+    }
+
+    @keyframes latido {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      to {
+        opacity: 0.55;
+        transform: scale(1.04);
+      }
+    }
+
+    .interferencia {
+      animation: interferencia 0.15s 12;
+    }
+
+    @keyframes interferencia {
+      0%, 100% {
+        filter: none;
+      }
+
+      50% {
+        filter: invert(1);
+      }
+    }
+
+    .pie {
+      margin-top: 35px;
+      text-align: center;
+      color: #88776b;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+    }
+
+    details {
+      margin-top: 35px;
+      padding: 15px;
+      border: 1px solid var(--borde);
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--secundario);
+    }
+
+    .opcion {
+      text-align: left;
+      background: #342521;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="contenedor">
+
+    <div class="etiqueta">
+      BLACKWOOD ARCHIVES · ACCESO RESTRINGIDO
+    </div>
+
+    <h1>
+      BLACKWOOD<br>
+      EXPERIENCE
+    </h1>
+
+    <p class="informacion">
+      EXPEDIENTE 001 · OCTUBRE DE 1923
+    </p>
+
+    <div id="aplicacion"></div>
+
+    <div class="pie">
+      ARCHIVOS BLACKWOOD · INVESTIGACIÓN CONFIDENCIAL
+    </div>
+
+    <details>
+      <summary>Panel del organizador</summary>
+
+      <p class="informacion">
+        Introduce la clave para reiniciar la investigación.
+      </p>
+
+      <input
+        type="password"
+        id="claveOrganizador"
+        placeholder="Contraseña"
+      >
+
+      <button onclick="abrirPanel()">
+        ACCEDER
+      </button>
+
+      <div id="controlesOrganizador"></div>
+    </details>
+
+  </main>
+
+  <script>
+
+    // =====================================
+    // CONFIGURACIÓN GENERAL
+    // =====================================
+
+    const CLAVE_GUARDADO = "blackwood_v4";
+
+    const aplicacion = document.getElementById("aplicacion");
+
+    let estado = {
+      iniciado: false,
+      escena: 0,
+      final: null
+    };
+
+    // =====================================
+    // ESCENAS DE LA INVESTIGACIÓN
+    // =====================================
+
+    const escenas = [
+
+      {
+        titulo: "La llegada a Blackwood",
+        lugar: "ENTRADA · CALABAZA",
+        duracion: "2-3 MINUTOS",
+
+        historia: `
+          La residencia Blackwood permanece cerrada
+          desde la desaparición de tres menores.
+
+          <br><br>
+
+          Un antiguo expediente ha sido recuperado.
+
+          <br><br>
+
+          Vuestra misión es descubrir qué ocurrió
+          realmente aquella noche.
+        `,
+
+        mision: `
+          Buscad el sello del vigilante
+          junto a la calabaza.
+
+          <br><br>
+
+          Introducid el año de apertura
+          del expediente.
+        `,
+
+        respuesta: "1923",
+
+        pista: "El año aparece en la tarjeta del vigilante.",
+
+        revelacion: `
+          El expediente confirma que tres menores
+          desaparecieron en octubre de 1923.
+
+          <br><br>
+
+          Eleanor Blackwood fue investigada,
+          pero nunca condenada.
+        `,
+
+        siguiente: `
+          Dirigíos hacia la entrada principal
+          de la residencia.
+        `
+      },
+
+      {
+        titulo: "La última noche de los niños",
+        lugar: "ESCALERAS · MUÑECA",
+        duracion: "3-4 MINUTOS",
+
+        historia: `
+          La muñeca perteneció a Rose Blackwood.
+
+          <br><br>
+
+          Entre sus pertenencias se conserva
+          una pequeña nota escrita
+          antes de las desapariciones.
+        `,
+
+        mision: `
+          Encontrad la nota de Rose
+          y el registro familiar.
+
+          <br><br>
+
+          ¿Cuántos hijos tuvo Eleanor Blackwood?
+        `,
+
+        respuesta: "4",
+
+        pista: "Tres desaparecieron y una niña había fallecido.",
+
+        revelacion: `
+          Eleanor tuvo cuatro hijos:
+
+          <br><br>
+
+          Rose, Margaret, Thomas
+          y una cuarta hija que falleció
+          cuando apenas tenía un año.
+
+          <br><br>
+
+          Tras su muerte,
+          Eleanor comenzó a comportarse
+          de manera extraña.
+        `,
+
+        siguiente: `
+          Buscad el testimonio de Edward
+          en el porche.
+        `
+      },
+
+      {
+        titulo: "El testimonio de Edward",
+        lugar: "PORCHE · MANO CERCENADA",
+        duracion: "3-4 MINUTOS",
+
+        historia: `
+          Edward Blackwood dejó una declaración
+          antes de desaparecer del registro familiar.
+
+          <br><br>
+
+          Su testimonio podría cambiar
+          el rumbo de la investigación.
+        `,
+
+        mision: `
+          Encontrad la declaración
+          junto a la mano del porche.
+
+          <br><br>
+
+          ¿Cuál es el nombre del hombre
+          que firmó el documento?
+        `,
+
+        respuesta: "EDWARD",
+
+        pista: "La firma está al final de la declaración.",
+
+        revelacion: `
+          Edward afirmó que Eleanor estaba
+          encerrada cuando escuchó
+          los gritos de Thomas.
+
+          <br><br>
+
+          También aseguró haber visto
+          una figura de rostro blanco
+          huyendo por el jardín.
+
+          <br><br>
+
+          ¿Podría Eleanor ser inocente?
+        `,
+
+        siguiente: `
+          Continuad por el corredor lateral.
+        `
+      },
+
+      {
+        titulo: "El corredor de las pruebas",
+        lugar: "PASILLO · OSO · LONA",
+        duracion: "3-4 MINUTOS",
+
+        historia: `
+          Los investigadores originales
+          recuperaron varios objetos
+          relacionados con los niños.
+
+          <br><br>
+
+          Todos fueron incorporados
+          al expediente S-04.
+        `,
+
+        mision: `
+          Recorred el pasillo
+          sin atravesar las zonas cerradas.
+
+          <br><br>
+
+          Localizad los objetos
+          que tienen una X marcada.
+
+          <br><br>
+
+          ¿Cuántos objetos están señalados?
+        `,
+
+        respuesta: "3",
+
+        pista: "Buscad tres objetos independientes con una X.",
+
+        revelacion: `
+          Habéis encontrado tres evidencias.
+
+          <br><br>
+
+          Una pertenecía a Rose.
+          Otra a Margaret.
+          La última a Thomas.
+
+          <br><br>
+
+          Las tres aparecen relacionadas
+          con el sospechoso S-04.
+        `,
+
+        siguiente: `
+          Buscad al sospechoso
+          al final del corredor.
+        `
+      },
+
+      {
+        titulo: "El hombre de la sonrisa",
+        lugar: "ZONA DEL PAYASO",
+        duracion: "3-4 MINUTOS",
+
+        historia: `
+          El expediente S-04 corresponde
+          a un antiguo artista ambulante
+          que trabajó para los Blackwood.
+
+          <br><br>
+
+          Fue visto en los jardines
+          la noche de las desapariciones.
+        `,
+
+        mision: `
+          Encontrad su ficha policial.
+
+          <br><br>
+
+          Introducid el número
+          que identifica al sospechoso
+          en el expediente.
+        `,
+
+        respuesta: "04",
+
+        pista: "La ficha comienza con la referencia S-04.",
+
+        revelacion: `
+          El sospechoso declaró:
+
+          <br><br>
+
+          «Los tres estaban conmigo aquella noche».
+
+          <br><br>
+
+          Sus palabras parecen confirmar
+          que estuvo con los menores.
+
+          <br><br>
+
+          Sin embargo, también afirmó
+          que intentó salvarlos.
+        `,
+
+        siguiente: `
+          Dirigíos al cenador,
+          donde permanecen las cuatro sombras.
+        `
+      },
+
+      {
+        titulo: "Las cuatro sombras",
+        lugar: "CENADOR · ESPÍRITUS",
+        duracion: "3-4 MINUTOS",
+
+        historia: `
+          Cuatro figuras permanecen suspendidas
+          sobre el antiguo jardín.
+
+          <br><br>
+
+          Un fragmento de un cuaderno
+          parece relacionarlas
+          con la familia Blackwood.
+        `,
+
+        mision: `
+          Buscad la página arrancada
+          del cuaderno ritual.
+
+          <br><br>
+
+          ¿Cuántos hijos fueron entregados
+          durante el sacrificio?
+        `,
+
+        respuesta: "3",
+
+        pista: "Una hija murió antes del ritual.",
+
+        revelacion: `
+          El cuaderno menciona
+          tres vidas entregadas
+          y una vida reclamada.
+
+          <br><br>
+
+          También advierte:
+
+          <br><br>
+
+          «El nombre de un inocente,
+          pronunciado como culpable,
+          cerrará el umbral desde el otro lado».
+
+          <br><br>
+
+          ¿Qué significa realmente?
+        `,
+
+        siguiente: `
+          Regresad a la pared
+          de los retratos familiares.
+        `
+      }
+
+    ];
+
+    // =====================================
+    // GUARDADO AUTOMÁTICO
+    // =====================================
+
+    function guardar() {
+      localStorage.setItem(
+        CLAVE_GUARDADO,
+        JSON.stringify(estado)
+      );
+    }
+
+    function cargar() {
+      const datos = localStorage.getItem(CLAVE_GUARDADO);
+
+      if (datos) {
+        try {
+          const recuperado = JSON.parse(datos);
+
+          if (
+            typeof recuperado.iniciado === "boolean" &&
+            Number.isInteger(recuperado.escena) &&
+            recuperado.escena >= 0 &&
+            recuperado.escena <= escenas.length
+          ) {
+            estado = recuperado;
+          }
+
+        } catch (error) {
+          console.warn("No se pudo recuperar la partida.");
+        }
+      }
+    }
+
+    // =====================================
+    // PANTALLA INICIAL
+    // =====================================
+
+    function mostrarInicio() {
+
+      aplicacion.innerHTML = `
+        <section class="panel">
+
+          <div class="sello">
+            CASO REABIERTO
+          </div>
+
+          <h2>Una investigación pendiente</h2>
+
+          <p>
+            Octubre de 1923.
+          </p>
+
+          <p>
+            Tres menores desaparecieron
+            de la residencia Blackwood.
+          </p>
+
+          <p>
+            Su madre, Eleanor Blackwood,
+            fue investigada.
+          </p>
+
+          <p>
+            Sin embargo, nuevas pruebas
+            podrían demostrar que
+            la historia oficial era falsa.
+          </p>
+
+          <p>
+            Vuestra misión será reconstruir
+            los acontecimientos,
+            examinar las evidencias
+            y emitir un veredicto.
+          </p>
+
+          <p class="informacion">
+            DURACIÓN ESTIMADA: 20-30 MINUTOS
+          </p>
+
+          <button onclick="comenzar()">
+            ABRIR EXPEDIENTE
+          </button>
+
+        </section>
+      `;
+    }
+
+    function comenzar() {
+      estado.iniciado = true;
+      guardar();
+      mostrarEscena();
+    }
+
+    // =====================================
+    // MOSTRAR ESCENA
+    // =====================================
+
+    function mostrarEscena() {
+
+      if (estado.escena >= escenas.length) {
+        mostrarVeredicto();
+        return;
+      }
+
+      const escena = escenas[estado.escena];
+
+      const porcentaje = Math.round(
+        (estado.escena / 7) * 100
+      );
+
+      aplicacion.innerHTML = `
+        <div class="progreso">
+          <div
+            class="barra"
+            style="width:${porcentaje}%"
+          ></div>
+        </div>
+
+        <p class="informacion">
+          PRUEBA ${estado.escena + 1} DE 7
+          · ${escena.duracion}
+        </p>
+
+        <section class="panel">
+
+          <div class="etiqueta">
+            ${escena.lugar}
+          </div>
+
+          <h2>${escena.titulo}</h2>
+
+          <p>${escena.historia}</p>
+
+          <div class="documento">
+            <h3>MISIÓN</h3>
+            <p>${escena.mision}</p>
+          </div>
+
+          <input
+            type="text"
+            id="respuesta"
+            placeholder="INTRODUCIR RESPUESTA"
+            autocomplete="off"
+          >
+
+          <button onclick="comprobarRespuesta()">
+            VERIFICAR PRUEBA
+          </button>
+
+          <p id="mensajeError" class="error"></p>
+
+          <button
+            class="secundario"
+            onclick="mostrarPista()"
+          >
+            SOLICITAR PISTA
+          </button>
+
+          <p
+            id="textoPista"
+            class="informacion oculto"
+          ></p>
+
+        </section>
+      `;
+
+      document.getElementById("respuesta")
+        .addEventListener("keydown", function(event) {
+
+          if (event.key === "Enter") {
+            comprobarRespuesta();
+          }
+
+        });
+    }
+
+    // =====================================
+    // COMPROBAR RESPUESTAS
+    // =====================================
+
+    function normalizar(texto) {
+
+      return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim()
+        .toUpperCase();
+    }
+
+    function comprobarRespuesta() {
+
+      const respuesta = normalizar(
+        document.getElementById("respuesta").value
+      );
+
+      const escena = escenas[estado.escena];
+
+      if (respuesta === escena.respuesta) {
+
+        mostrarRevelacion(escena);
+
+      } else {
+
+        document.getElementById("mensajeError")
+          .textContent =
+          "RESPUESTA INCORRECTA. REVISAD LAS PRUEBAS.";
+
+      }
+    }
+
+    function mostrarPista() {
+
+      const escena = escenas[estado.escena];
+
+      const elemento = document.getElementById("textoPista");
+
+      elemento.textContent = escena.pista;
+
+      elemento.classList.remove("oculto");
+    }
+
+    // =====================================
+    // REVELACIÓN DE CADA ESCENA
+    // =====================================
+
+    function mostrarRevelacion(escena) {
+
+      aplicacion.innerHTML = `
+        <section class="panel">
+
+          <div class="sello">
+            PRUEBA AUTENTICADA
+          </div>
+
+          <h2>Documento recuperado</h2>
+
+          <div class="documento">
+            ${escena.revelacion}
+          </div>
+
+          <p>${escena.siguiente}</p>
+
+          <button onclick="avanzarEscena()">
+            CONTINUAR INVESTIGACIÓN
+          </button>
+
+        </section>
+      `;
+    }
+
+    function avanzarEscena() {
+
+      estado.escena++;
+
+      guardar();
+
+      mostrarEscena();
+    }
+
+    // =====================================
+    // VEREDICTO FINAL
+    // =====================================
+
+    function mostrarVeredicto() {
+
+      aplicacion.innerHTML = `
+        <section class="panel">
+
+          <div class="sello">
+            INVESTIGACIÓN FINAL
+          </div>
+
+          <h2>El juicio de los Blackwood</h2>
+
+          <p>
+            Ante vosotros se encuentran
+            cuatro retratos:
+          </p>
+
+          <p>
+            Rose Blackwood.<br>
+            Margaret Blackwood.<br>
+            Thomas Blackwood.<br>
+            Eleanor Blackwood.
+          </p>
+
+          <p>
+            Habéis recuperado las pruebas.
+            Ahora debéis emitir un veredicto.
+          </p>
+
+          <div class="documento">
+
+            <h3>ACTA DE ACUSACIÓN</h3>
+
+            <p>
+              ¿Quién fue responsable
+              de la desaparición
+              de los tres niños?
+            </p>
+
+          </div>
+
+          <button
+            class="opcion"
+            onclick="emitirVeredicto('eleanor')"
+          >
+            ACUSAR A ELEANOR BLACKWOOD
+          </button>
+
+          <button
+            class="opcion"
+            onclick="emitirVeredicto('payaso')"
+          >
+            ACUSAR AL HOMBRE DE LA SONRISA
+          </button>
+
+        </section>
+      `;
+    }
+
+    function emitirVeredicto(culpable) {
+
+      estado.final = culpable;
+
+      guardar();
+
+      if (culpable === "payaso") {
+        mostrarFinalTragico();
+      } else {
+        mostrarFinalAlternativo();
+      }
+    }
+
+    // =====================================
+    // FINAL TRÁGICO
+    // =====================================
+
+    function mostrarFinalTragico() {
+
+      aplicacion.innerHTML = `
+        <section class="panel">
+
+          <div class="sello">
+            EXPEDIENTE RESUELTO
+          </div>
+
+          <h2>Responsable identificado</h2>
+
+          <p>
+            EL HOMBRE DE LA SONRISA
+          </p>
+
+          <p>
+            Investigación completada: 100 %.
+          </p>
+
+          <p>
+            La sentencia ha sido registrada.
+          </p>
+
+          <p>
+            Se ha localizado un último documento
+            detrás del retrato de Eleanor Blackwood.
+          </p>
+
+          <p>
+            Recuperadlo y leedlo completamente.
+          </p>
+
+          <button onclick="mostrarConfesion()">
+            HE LEÍDO LA CONFESIÓN
+          </button>
+
+        </section>
+      `;
+    }
+
+    // =====================================
+    // FINAL ALTERNATIVO
+    // =====================================
+
+    function mostrarFinalAlternativo() {
+
+      aplicacion.innerHTML = `
+        <section class="panel">
+
+          <div class="sello">
+            SENTENCIA REGISTRADA
+          </div>
+
+          <h2>Eleanor Blackwood</h2>
+
+          <p>
+            Habéis rechazado las pruebas
+            que señalaban al hombre
+            de la sonrisa.
+          </p>
+
+          <p>
+            El expediente ha detectado
+            una contradicción.
+          </p>
+
+          <p>
+            El ritual no puede completarse
+            mediante una acusación verdadera.
+          </p>
+
+          <p>
+            Buscad el documento oculto
+            detrás del retrato de Eleanor.
+          </p>
+
+          <button onclick="mostrarConfesion()">
+            HE LEÍDO LA CONFESIÓN
+          </button>
+
+        </section>
+      `;
+    }
+
+    // =====================================
+    // CONFESIÓN FINAL
+    // =====================================
+
+    function mostrarConfesion() {
+
+      const tragico = estado.final === "payaso";
+
+      aplicacion.innerHTML = `
+        <section class="panel">
+
+          <div class="sello">
+            DOCUMENTO CONFIDENCIAL
+          </div>
+
+          <h2>La confesión de Eleanor</h2>
+
+          <p>
+            Habéis descubierto la verdad.
+          </p>
+
+          <div class="documento">
+
+            <p>
+              Eleanor sacrificó a Rose,
+              Margaret y Thomas
+              para recuperar a su hija pequeña.
+            </p>
+
+            <p>
+              Falsificó el testimonio de Edward
+              y manipuló las evidencias
+              para incriminar al payaso.
+            </p>
+
+            <p>
+              El hombre de la sonrisa
+              intentó salvar a los niños.
+            </p>
+
+          </div>
+
+          <h3>
+            ${
+              tragico
+                ? "EL RITUAL SE HA COMPLETADO"
+                : "EL RITUAL HA SIDO INTERRUMPIDO"
+            }
+          </h3>
+
+          <p>
+            ${
+              tragico
+                ? "Habéis condenado a un inocente. Eleanor ha conseguido lo que deseaba."
+                : "Habéis identificado a la verdadera culpable. Eleanor no ha conseguido completar el ritual."
+            }
+          </p>
+
+          <button onclick="activarSusto()">
+            ABRIR ÚLTIMA TRANSMISIÓN
+          </button>
+
+        </section>
+      `;
+    }
+
+    // =====================================
+    // EFECTO SONORO
+    // =====================================
+
+    function reproducirSonido() {
+
+      try {
+
+        const contexto = new (
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+
+        contexto.resume();
+
+        const tiempo = contexto.currentTime;
+
+        for (let i = 0; i < 6; i++) {
+
+          const oscilador = contexto.createOscillator();
+          const volumen = contexto.createGain();
+
+          oscilador.type = "sawtooth";
+
+          oscilador.frequency.setValueAtTime(
+            160 + i * 45,
+            tiempo + i * 0.08
+          );
+
+          oscilador.frequency.exponentialRampToValueAtTime(
+            55,
+            tiempo + i * 0.08 + 0.5
+          );
+
+          volumen.gain.setValueAtTime(
+            0.0001,
+            tiempo + i * 0.08
+          );
+
+          volumen.gain.exponentialRampToValueAtTime(
+            0.08,
+            tiempo + i * 0.08 + 0.02
+          );
+
+          volumen.gain.exponentialRampToValueAtTime(
+            0.0001,
+            tiempo + i * 0.08 + 0.55
+          );
+
+          oscilador.connect(volumen);
+          volumen.connect(contexto.destination);
+
+          oscilador.start(tiempo + i * 0.08);
+
+          oscilador.stop(tiempo + i * 0.08 + 0.56);
+
+        }
+
+      } catch (error) {
+
+        console.warn("Audio no disponible.");
+
+      }
+    }
+
+    // =====================================
+    // SUSTO FINAL
+    // =====================================
+
+    function activarSusto() {
+
+      const tragico = estado.final === "payaso";
+
+      aplicacion.innerHTML = `
+        <section class="panel" id="panelFinal">
+
+          <div class="sello">
+            ERROR · EXPEDIENTE CORRUPTO
+          </div>
+
+          <h2>
+            ${
+              tragico
+                ? "RITUAL COMPLETADO"
+                : "RITUAL INTERRUMPIDO"
+            }
+          </h2>
+
+          <p class="final" id="mensajeFinal">
+            ${
+              tragico
+                ? "ELLA HA VUELTO"
+                : "ELLA SIGUE AQUÍ"
+            }
+          </p>
+
+          <button onclick="repetirSusto()">
+            REPRODUCIR TRANSMISIÓN
+          </button>
+
+        </section>
+      `;
+
+      repetirSusto();
+    }
+
+    function repetirSusto() {
+
+      reproducirSonido();
+
+      const panel = document.getElementById("panelFinal");
+
+      const mensaje = document.getElementById("mensajeFinal");
+
+      panel.classList.remove("interferencia");
+
+      void panel.offsetWidth;
+
+      panel.classList.add("interferencia");
+
+      mensaje.textContent = "NO MIRES DETRÁS DE TI";
+
+      if (navigator.vibrate) {
+
+        navigator.vibrate([
+          250, 100, 450, 100, 700
+        ]);
+
+      }
+    }
+
+    // =====================================
+    // PANEL ORGANIZADOR
+    // =====================================
+
+    function abrirPanel() {
+
+      const clave = document.getElementById(
+        "claveOrganizador"
+      ).value;
+
+      if (clave !== "BLACKWOOD") {
+
+        alert("Clave incorrecta.");
+
+        return;
+      }
+
+      document.getElementById(
+        "controlesOrganizador"
+      ).innerHTML = `
+        <button onclick="reiniciarPartida()">
+          REINICIAR INVESTIGACIÓN
+        </button>
+
+        <button
+          class="secundario"
+          onclick="saltarEscena()"
+        >
+          AVANZAR ESCENA
+        </button>
+      `;
+    }
+
+    function reiniciarPartida() {
+
+      if (!confirm("¿Reiniciar la investigación?")) {
+        return;
+      }
+
+      estado = {
+        iniciado: false,
+        escena: 0,
+        final: null
+      };
+
+      guardar();
+
+      mostrarInicio();
+    }
+
+    function saltarEscena() {
+
+      estado.iniciado = true;
+
+      estado.escena = Math.min(
+        escenas.length,
+        estado.escena + 1
+      );
+
+      guardar();
+
+      mostrarEscena();
+    }
+
+    // =====================================
+    // INICIALIZACIÓN
+    // =====================================
+
+    cargar();
+
+    if (estado.iniciado) {
+      mostrarEscena();
+    } else {
+      mostrarInicio();
+    }
+
+  </script>
+
+</body>
+</html>
